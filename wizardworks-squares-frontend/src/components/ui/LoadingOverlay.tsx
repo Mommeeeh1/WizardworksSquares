@@ -1,5 +1,5 @@
 import React from 'react';
-import { COLORS } from '../constants/gridConstants';
+import { COLORS } from '../../constants/gridConstants';
 
 interface LoadingOverlayProps {
   /** Whether the overlay should be visible. */

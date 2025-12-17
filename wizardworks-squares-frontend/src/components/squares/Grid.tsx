@@ -1,6 +1,6 @@
 import React from 'react';
-import type { Square } from '../types/square';
-import { GRID_CONSTANTS } from '../constants/gridConstants';
+import type { Square } from '../../types/square';
+import { GRID_CONSTANTS } from '../../constants/gridConstants';
 
 interface GridProps {
   squares: Square[];

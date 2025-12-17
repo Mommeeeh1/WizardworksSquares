@@ -1,10 +1,10 @@
 import { Grid } from './Grid';
-import { Button } from './Button';
-import { ErrorMessage } from './ErrorMessage';
-import { LoadingOverlay } from './LoadingOverlay';
-import { useSquares } from '../hooks/useSquares';
-import { COLORS, TYPOGRAPHY, LAYOUT } from '../constants/gridConstants';
-import { VALIDATION_CONFIG } from '../utils/validation';
+import { Button } from '../ui/Button';
+import { ErrorMessage } from '../ui/ErrorMessage';
+import { LoadingOverlay } from '../ui/LoadingOverlay';
+import { useSquares } from '../../hooks/useSquares';
+import { COLORS, TYPOGRAPHY, LAYOUT } from '../../constants/gridConstants';
+import { VALIDATION_CONFIG } from '../../utils/validation';
 
 /**
  * Container component that manages squares state and coordinates all UI.
