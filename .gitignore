@@ -97,6 +97,3 @@ Thumbs.db
 # Environment files with secrets (if any)
 *.env.local
 *.env.*.local
-
-
-
