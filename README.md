@@ -187,7 +187,6 @@ Squares are positioned using an expanding spiral algorithm:
 - Global exception middleware catches all unhandled exceptions
 - Returns RFC 7807 Problem Details format
 - Maps exception types to appropriate HTTP status codes (400, 500)
-- Development vs Production error messages
 
 **Frontend**:
 - Try-catch blocks in all API calls
