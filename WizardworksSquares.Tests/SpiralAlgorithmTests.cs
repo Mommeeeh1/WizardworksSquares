@@ -202,3 +202,4 @@ public class SpiralAlgorithmTests
             "spiral should restart from the same pattern after clear");
     }
 }
+

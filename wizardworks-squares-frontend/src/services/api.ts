@@ -52,11 +52,25 @@ class ApiClient {
         }));
         
         // Handle Problem Details for HTTP APIs (RFC 7807)
-        // Prefer backend error messages, fallback to generic message
-        const errorMessage = error.detail || error.title || error.error || 
-          (response.status === 500 
+        // Make technical error messages more user-friendly
+        let errorMessage = error.detail || error.title || error.error;
+        
+        // Convert technical backend messages to user-friendly ones
+        if (errorMessage && (
+          errorMessage.includes('null') || 
+          errorMessage.includes('Id') ||
+          errorMessage.includes('Guid')
+        )) {
+          errorMessage = 'Something went wrong. Please try again.';
+        }
+        
+        // Fallback messages based on status code
+        if (!errorMessage) {
+          errorMessage = response.status === 500 
             ? 'An internal server error occurred. Please try again later.'
-            : `An error occurred (${response.status}). Please try again later.`);
+            : 'Something went wrong. Please try again.';
+        }
+        
         throw new Error(errorMessage);
       }
 
@@ -95,7 +109,7 @@ class ApiClient {
     // Validate response is an array
     if (!Array.isArray(data)) {
       console.error('getAllSquares: Expected array, got:', typeof data, data);
-      throw new ValidationError('Invalid response format: expected array');
+      throw new ValidationError('Something went wrong loading squares. Please try again.');
     }
     
     // Validate and filter out invalid squares
@@ -127,7 +141,7 @@ class ApiClient {
     // Validate response is a valid square
     if (!isValidSquare(data)) {
       console.error('createSquare: Invalid square received:', data);
-      throw new ValidationError('Invalid response format: square validation failed');
+      throw new ValidationError('Something went wrong creating the square. Please try again.');
     }
     
     return data;

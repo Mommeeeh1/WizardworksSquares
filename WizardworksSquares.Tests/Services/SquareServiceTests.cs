@@ -71,3 +71,4 @@ public class SquareServiceTests
         result.Column.Should().Be(0);
     }
 }
+

@@ -1,6 +1,8 @@
 # Personal reference documents (not for repository)
 INTERVIEW_GUIDE.md
 GRID_EXPLANATION.md
+CONCEPTS_GUIDE.md
+SPIRAL_ALGORITHM_GUIDE.md
 
 # .NET / C# Backend
 *.swp

@@ -76,3 +76,4 @@ export const SquaresContainer: React.FC = () => {
     </div>
   );
 };
+

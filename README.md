@@ -4,7 +4,7 @@ A web application that generates colored squares in an expanding grid pattern. B
 
 ## 📋 Overview
 
-This project is a technical assessment for Wizardworks that demonstrates full-stack development capabilities. Users can add colored squares to a grid, with each square automatically positioned using a spiral algorithm and assigned a random color. All data is persisted via a RESTful API and survives page reloads.
+This project demonstrates full-stack development capabilities. Users can add colored squares to a grid, with each square automatically positioned using a spiral algorithm and assigned a random color. All data is persisted via a RESTful API and survives page reloads.
 
 ## ✨ Features
 
@@ -19,6 +19,7 @@ This project is a technical assessment for Wizardworks that demonstrates full-st
 ## 🛠️ Tech Stack
 
 ### Backend
+
 - **.NET 9.0** with C#
 - **ASP.NET Core Minimal APIs**
 - **Swagger/OpenAPI** for API documentation
@@ -26,52 +27,22 @@ This project is a technical assessment for Wizardworks that demonstrates full-st
 - **Repository Pattern** for data access
 - **Service Layer** for business logic
 - **Global Exception Middleware** for error handling
+- **xUnit** for unit testing
 
 ### Frontend
+
 - **React 18** with TypeScript
 - **Vite** for build tooling
 - **Custom Hooks** for state management
 - **Tailwind CSS** for styling
 - **Fetch API** for HTTP requests
 
-## 📁 Project Structure
-
-```
-WizardworksSquares/
-├── WizardworksSquares.Api/     # Backend (.NET API)
-│   ├── Constants/               # Application constants
-│   ├── DTO/                     # Data Transfer Objects
-│   ├── Endpoints/               # API endpoint definitions
-│   ├── Middleware/              # Global exception handler
-│   ├── Models/                  # Domain models
-│   ├── Repositories/            # Data access layer
-│   ├── Services/                # Business logic layer
-│   ├── Data/                    # JSON data storage
-│   └── Program.cs               # Application entry point
-│
-└── wizardworks-squares-frontend/ # Frontend (React + TypeScript)
-    ├── src/
-    │   ├── components/          # React components
-    │   │   ├── Grid.tsx         # Main grid component
-    │   │   ├── Button.tsx       # Reusable button
-    │   │   ├── ErrorMessage.tsx # Error display
-    │   │   └── LoadingOverlay.tsx # Loading spinner
-    │   ├── hooks/               # Custom React hooks
-    │   │   └── useSquares.ts    # State management hook
-    │   ├── services/            # API client
-    │   │   └── api.ts           # Backend communication
-    │   ├── types/               # TypeScript types
-    │   │   └── square.ts        # Square interface
-    │   └── constants/           # UI constants
-    └── vite.config.ts           # Vite configuration
-```
-
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- [.NET 9.0 SDK](https://dotnet.microsoft.com/download)
-- [Node.js 18+](https://nodejs.org/)
+- .NET 9.0 SDK
+- Node.js 18+
 - npm or yarn
 
 ### Backend Setup
@@ -122,9 +93,28 @@ The application will start on `http://localhost:5173`
 ### Configuration
 
 The frontend API URL can be configured in `wizardworks-squares-frontend/.env`:
-```env
+```
 VITE_API_URL=http://localhost:5268
 ```
+
+## 🧪 Running Tests
+
+### Backend Tests
+
+Navigate to the test project directory and run:
+```bash
+cd WizardworksSquares.Tests
+dotnet test
+```
+
+The test suite includes:
+- **Spiral Algorithm Tests**: Validates the spiral positioning algorithm
+  - Ensures unique positions for all squares
+  - Verifies correct grid expansion
+  - Tests center positioning
+- **Service Tests**: Validates business logic
+  - First square placement at center
+  - Grid reset behavior
 
 ## 📡 API Endpoints
 
@@ -178,13 +168,10 @@ Health check endpoint.
 
 ### Architecture
 
-**Repository Pattern**: Separates data access logic from business logic, making the code more testable and maintainable.
-
-**Service Layer**: Encapsulates business logic including the spiral positioning algorithm and color selection.
-
-**DTOs**: Clear separation between domain models and API contracts.
-
-**Custom Hooks**: React state management is extracted into reusable hooks for cleaner components.
+- **Repository Pattern**: Separates data access logic from business logic, making the code more testable and maintainable.
+- **Service Layer**: Encapsulates business logic including the spiral positioning algorithm and color selection.
+- **DTOs**: Clear separation between domain models and API contracts.
+- **Custom Hooks**: React state management is extracted into reusable hooks for cleaner components.
 
 ### Spiral Algorithm
 
@@ -206,29 +193,11 @@ Squares are positioned using an expanding spiral algorithm:
 - Try-catch blocks in all API calls
 - Error state management with dismissible error messages
 - Graceful fallbacks for network errors
-
-### Loading States
-
-**Deferred Loading**: Loading indicators only appear if requests take longer than 300ms, preventing unnecessary UI flicker for fast operations.
+- User-friendly error messages
 
 ### Data Persistence
 
 **JSON File Storage**: Simple, lightweight persistence suitable for a demo application. Easy to inspect and debug.
-
-## 🎨 UI Features
-
-- **Modern Design**: Clean, purple-themed interface with smooth interactions
-- **Visual Feedback**: Loading overlays and error messages
-- **Responsive Grid**: Dynamically sized based on number of squares
-- **Color Palette**: 12 predefined colors with smart selection avoiding consecutive duplicates
-
-## 🧪 Testing the Application
-
-1. Start both backend and frontend
-2. Click "Add square" to create squares with random colors
-3. Observe the spiral pattern as squares are added
-4. Click "Clear" to remove all squares
-5. Refresh the page to verify persistence
 
 ## 📝 Code Quality
 
@@ -237,17 +206,8 @@ Squares are positioned using an expanding spiral algorithm:
 - **Documentation**: XML comments (C#), JSDoc (TypeScript)
 - **Error Handling**: Comprehensive error handling throughout
 - **Clean Code**: SOLID principles, DRY, separation of concerns
-
-## 🤝 Contributing
-
-This is a technical assessment project, but feedback and suggestions are welcome!
+- **Tested**: Unit tests for core business logic
 
 ## 📄 License
 
-This project is created as a technical assessment for Wizardworks.
-
----
-
-**Built with ❤️ for Wizardworks Technical Assessment**
-
-
+This project is created as a technical assessment.

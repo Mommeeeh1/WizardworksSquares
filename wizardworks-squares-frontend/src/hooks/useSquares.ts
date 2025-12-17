@@ -119,7 +119,7 @@ export const useSquares = (): UseSquaresReturn => {
       
       // Check max squares limit
       if (squares.length >= VALIDATION_CONFIG.MAX_SQUARES) {
-        throw new Error(`Maximum of ${VALIDATION_CONFIG.MAX_SQUARES} squares reached. Please clear some first.`);
+        throw new Error(`Maximum of ${VALIDATION_CONFIG.MAX_SQUARES} squares reached. Please click Clear first.`);
       }
       
       const newSquare = await apiClient.createSquare();
