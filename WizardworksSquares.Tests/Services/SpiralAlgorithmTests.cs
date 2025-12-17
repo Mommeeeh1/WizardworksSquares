@@ -5,7 +5,7 @@ using WizardworksSquares.Api.Models;
 using WizardworksSquares.Api.Repositories;
 using WizardworksSquares.Api.Services;
 
-namespace WizardworksSquares.Tests;
+namespace WizardworksSquares.Tests.Services;
 
 /// <summary>
 /// Tests specifically for the spiral algorithm logic.
@@ -202,4 +202,3 @@ public class SpiralAlgorithmTests
             "spiral should restart from the same pattern after clear");
     }
 }
-
